@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title>Vditor Hebrew RTL Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0 20px;
+            font-family: "Noto Sans Hebrew", "Arial Hebrew", "David", "Times New Roman", sans-serif;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .nav {
+            text-align: center;
+            margin: 20px 0
+        }
+
+        a {
+            color: #4285f4;
+        }
+        
+        .test-info {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-right: 4px solid #4285f4;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vditor/dist/index.css" />
+</head>
+<body>
+<div class="vditor-reset nav">
+    <h1>בדיקת תמיכה בעברית ו-RTL ב-Vditor</h1>
+    <p>זהו דף בדיקה לתמיכה בשפה העברית וכיוון RTL בעורך Vditor</p>
+</div>
+
+<div class="test-info">
+    <h3>מידע על הבדיקה</h3>
+    <ul>
+        <li>השפה מוגדרת כ-he_IL</li>
+        <li>כיוון RTL מופעל</li>
+        <li>גופן עברי נטען</li>
+        <li>ממשק המשתמש מתורגם לעברית</li>
+    </ul>
+</div>
+
+<div id="vditor">
+# כותרת ראשית בעברית
+
+זהו טקסט לדוגמה בעברית. הטקסט צריך להיות מיושר לימין ולהיקרא מימין לשמאל.
+
+## כותרת משנה
+
+* פריט ראשון ברשימה
+* פריט שני ברשימה  
+* פריט שלישי ברשימה
+
+### קוד לדוגמה
+
+```javascript
+console.log("שלום עולם!");
+```
+
+**טקסט מודגש** ו*טקסט נטוי*
+
+> ציטוט בעברית
+> שורה שנייה של הציטוט
+
+[קישור לדוגמה](https://example.com)
+
+| עמודה 1 | עמודה 2 | עמודה 3 |
+|---------|---------|---------|
+| תא 1    | תא 2    | תא 3    |
+| תא 4    | תא 5    | תא 6    |
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vditor/dist/index.min.js"></script>
+<script src="../src/js/i18n/he_IL.js"></script>
+<script>
+    const vditor = new Vditor('vditor', {
+        lang: 'he_IL',
+        rtl: true,
+        height: 500,
+        placeholder: 'הכנס טקסט כאן...',
+        mode: 'ir', // instant rendering mode
+        toolbar: [
+            'emoji',
+            'headings',
+            'bold',
+            'italic',
+            'strike',
+            'link',
+            '|',
+            'list',
+            'ordered-list',
+            'check',
+            'outdent',
+            'indent',
+            '|',
+            'quote',
+            'line',
+            'code',
+            'inline-code',
+            '|',
+            'table',
+            '|',
+            'undo',
+            'redo',
+            '|',
+            'fullscreen',
+            'edit-mode',
+            'preview'
+        ]
+    });
+    
+    // Make vditor globally accessible for testing
+    window.vditor = vditor;
+</script>
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vditor Hebrew RTL Test</title>
+    <link rel="stylesheet" href="dist/index.css" />
+    <style>
+        body {
+            font-family: "Noto Sans Hebrew", "Arial Hebrew", "David", "Times New Roman", sans-serif;
+            direction: rtl;
+            text-align: right;
+            margin: 20px;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>בדיקת תמיכה בעברית ו-RTL ב-Vditor</h1>
+        
+        <div class="test-section">
+            <h2>עורך Markdown עם תמיכה בעברית</h2>
+            <div id="vditor"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>טקסט לבדיקה</h2>
+            <p>זהו טקסט לבדיקה בעברית. הטקסט צריך להיות מיושר לימין ולהיקרא מימין לשמאל.</p>
+            <p>This is English text mixed with Hebrew: שלום עולם!</p>
+            <ul>
+                <li>פריט ראשון ברשימה</li>
+                <li>פריט שני ברשימה</li>
+                <li>פריט שלישי ברשימה</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="dist/index.min.js"></script>
+    <script src="src/js/i18n/he_IL.js"></script>
+    <script>
+        const vditor = new Vditor('vditor', {
+            lang: 'he_IL',
+            rtl: true,
+            height: 400,
+            placeholder: 'הכנס טקסט כאן...',
+            value: `# כותרת ראשית
+
+זהו טקסט לדוגמה בעברית. הטקסט צריך להיות מיושר לימין.
+
+## כותרת משנה
+
+* פריט ראשון ברשימה
+* פריט שני ברשימה
+* פריט שלישי ברשימה
+
+### קוד לדוגמה
+
+\`\`\`javascript
+console.log("שלום עולם!");
+\`\`\`
+
+**טקסט מודגש** ו*טקסט נטוי*
+
+> ציטוט בעברית
+> שורה שנייה של הציטוט
+
+[קישור לדוגמה](https://example.com)
+
+| עמודה 1 | עמודה 2 | עמודה 3 |
+|---------|---------|---------|
+| תא 1    | תא 2    | תא 3    |
+| תא 4    | תא 5    | תא 6    |
+`,
+            toolbar: [
+                'emoji',
+                'headings',
+                'bold',
+                'italic',
+                'strike',
+                'link',
+                '|',
+                'list',
+                'ordered-list',
+                'check',
+                'outdent',
+                'indent',
+                '|',
+                'quote',
+                'line',
+                'code',
+                'inline-code',
+                '|',
+                'table',
+                '|',
+                'undo',
+                'redo',
+                '|',
+                'fullscreen',
+                'edit-mode',
+                'preview'
+            ]
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,177 @@
+// RTL (Right-to-Left) support for Hebrew and other RTL languages
+.vditor {
+  &[dir="rtl"], &.vditor--rtl {
+    direction: rtl;
+    text-align: right;
+
+    // Toolbar adjustments for RTL
+    .vditor-toolbar {
+      direction: rtl;
+      
+      .vditor-toolbar__item {
+        float: right;
+        
+        &:first-child {
+          margin-right: 0;
+          margin-left: 5px;
+        }
+        
+        &:last-child {
+          margin-left: 0;
+          margin-right: 5px;
+        }
+      }
+      
+      .vditor-toolbar__divider {
+        float: right;
+      }
+    }
+
+    // Content area adjustments for RTL
+    .vditor-content {
+      direction: rtl;
+      text-align: right;
+      
+      .vditor-reset {
+        direction: rtl;
+        text-align: right;
+        
+        // Adjust list indentation for RTL
+        ul, ol {
+          padding-right: 2em;
+          padding-left: 0;
+        }
+        
+        // Adjust blockquote for RTL
+        blockquote {
+          border-right: 4px solid var(--heading-border-color);
+          border-left: none;
+          padding-right: 16px;
+          padding-left: 0;
+          margin-right: 0;
+        }
+        
+        // Adjust table alignment for RTL
+        table {
+          direction: rtl;
+          
+          th, td {
+            text-align: right;
+          }
+        }
+        
+        // Adjust code blocks for RTL
+        pre {
+          direction: ltr; // Keep code blocks LTR for readability
+          text-align: left;
+        }
+        
+        code {
+          direction: ltr; // Keep inline code LTR
+        }
+      }
+    }
+
+    // WYSIWYG mode adjustments
+    .vditor-wysiwyg {
+      direction: rtl;
+      text-align: right;
+      
+      .vditor-reset {
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    // IR (Instant Rendering) mode adjustments
+    .vditor-ir {
+      direction: rtl;
+      text-align: right;
+      
+      .vditor-reset {
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    // SV (Split View) mode adjustments
+    .vditor-sv {
+      .vditor-sv__editor {
+        direction: rtl;
+        text-align: right;
+      }
+      
+      .vditor-sv__preview {
+        direction: rtl;
+        text-align: right;
+        
+        .vditor-reset {
+          direction: rtl;
+          text-align: right;
+        }
+      }
+    }
+
+    // Outline adjustments for RTL
+    .vditor-outline {
+      direction: rtl;
+      text-align: right;
+      
+      .vditor-outline__item {
+        text-align: right;
+        padding-right: 16px;
+        padding-left: 0;
+        
+        &::before {
+          right: 0;
+          left: auto;
+        }
+      }
+    }
+
+    // Hint/autocomplete adjustments for RTL
+    .vditor-hint {
+      direction: rtl;
+      text-align: right;
+      
+      .vditor-hint__item {
+        text-align: right;
+      }
+    }
+
+    // Resize handle adjustments for RTL
+    .vditor-resize {
+      &--lr {
+        cursor: ew-resize;
+      }
+    }
+
+    // Panel adjustments for RTL
+    .vditor-panel {
+      direction: rtl;
+      
+      .vditor-panel__content {
+        direction: rtl;
+        text-align: right;
+      }
+    }
+
+    // Tooltip adjustments for RTL
+    .vditor-tooltipped {
+      &::before,
+      &::after {
+        direction: ltr; // Keep tooltips LTR for consistency
+      }
+    }
+  }
+}
+
+// Language-specific adjustments for Hebrew
+.vditor[lang="he"], .vditor[lang="he-IL"] {
+  font-family: "Noto Sans Hebrew", "Arial Hebrew", "David", "Times New Roman", @font-family-base;
+  
+  .vditor-reset {
+    font-family: "Noto Sans Hebrew", "Arial Hebrew", "David", "Times New Roman", @font-family-base;
+  }
+}
+
